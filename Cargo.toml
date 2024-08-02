@@ -1,0 +1,19 @@
+[package]
+name = "pidof"
+version = "1.0.0"
+edition = "2021"
+
+[[bin]]
+name = "pidof"
+path = "src/main.rs"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[dependencies]
+sysinfo = { version = "0.31.0", default-features = false, features = [
+    "system",
+] }
